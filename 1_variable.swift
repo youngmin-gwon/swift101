@@ -38,7 +38,7 @@ for foo in foos2 {
 // if foos2 is typed as let,
 // swift compiler says it cannot us mutating member on immutable value
 
-// for reference, there is exception when dealing with objective c (reference)
+// look at this interesting case
 let oldArray = NSMutableArray(array: [
   "Hello",
   "World",
