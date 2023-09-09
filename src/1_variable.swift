@@ -1,8 +1,10 @@
 import Foundation
 
+// without type annotation
 let greeting = "Hello"
+// with type annotation
 var name: String = "Youngmin"
-
+// string literal
 print("\(greeting), \(name)")
 
 let myName = "Youngmin"
@@ -46,3 +48,13 @@ let oldArray = NSMutableArray(array: [
 oldArray.add("Bar")
 
 print(oldArray)
+
+// range operator
+for myValue: Int8 in 0...5 {
+  print(myValue)
+}
+
+// closed range operator
+for myValue in 0..<5 {
+  print(myValue)
+}
