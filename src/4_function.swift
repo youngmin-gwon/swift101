@@ -10,7 +10,10 @@ func newPlusTwo(value: Int) -> Int {
   value + 2
 }
 
+// first way to call
 print(newPlusTwo(value: 56))
+// second way to call
+print(newPlusTwo(value:)(56))
 
 func customAdd(
   value1: Int,
@@ -76,3 +79,64 @@ print(getFullName())
 print(getFullName(firstName: "Hello"))
 print(getFullName(lastName: "Hello"))
 print(getFullName(firstName: "Hello", lastName: "World!"))
+
+// defer block
+// - execute command in defer reversely after executing all commands in function
+func testNewDefer() {
+  defer { print("defer #3") }
+  defer { print("defer #2") }
+  defer { print("defer #1") }
+  print("do something")
+}
+testNewDefer()
+
+// - works from the outermost
+func testDefer() {
+
+  defer {
+    defer {
+      defer {
+        print("defer #3")
+      }
+      print("defer #2")
+    }
+    print("defer #1")
+  }
+  print("do something")
+}
+
+testDefer()
+
+// when to use?
+// - when releasing Lock with NSLock
+// - when closing db with sqlite3
+// -------
+
+// typealias
+typealias OnClick = () -> Void
+
+// args
+func printMultipleArgs(_ variables: Int...) {
+  for variable in variables {
+    print(variable)
+  }
+}
+
+printMultipleArgs(1, 2, 3, 4, 5)
+
+// how to modify variable
+// 1) declare new variable
+func myFunc(_ variable: Int) -> Int {
+  var newVariable = variable
+  newVariable += 1
+  return newVariable
+}
+
+// 2) inout (call by reference)
+func inOutReference(_ variable: inout Int) {
+  variable += 1
+}
+var cnt = 1
+print(cnt)
+inOutReference(&cnt)
+print(cnt)
