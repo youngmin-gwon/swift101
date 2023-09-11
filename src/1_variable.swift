@@ -38,7 +38,7 @@ for foo in foos2 {
   print(foo)
 }
 // if foos2 is typed as let,
-// swift compiler says it cannot us mutating member on immutable value
+// swift compiler says it cannot use mutating member on immutable value
 
 // look at this interesting case
 let oldArray = NSMutableArray(array: [
