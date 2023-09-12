@@ -2,12 +2,13 @@ import Foundation
 
 // class is reference type
 
-// always create constructor (unlike struct)
+// we need to make constructor (unlike struct)
+// using `init` keyword
 
 // property
 // 1. stored property
 //  - member variable and member constant
-//  - initialize with `init`
+//  - initialize with `init` keyword
 class Person {
   init(
     age: Int,
