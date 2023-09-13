@@ -73,5 +73,56 @@ print(woof.age)
 // protocol have mutating function
 protocol Vehicle {
   var speed: Int { get set }
-  mutating func increaseAge(by value: Int)
+  mutating func increaseSpeed(by value: Int)
 }
+
+extension Vehicle {
+  mutating func increaseSpeed(
+    by value: Int
+  ) {
+    self.speed += value
+  }
+}
+
+struct Bike: Vehicle {
+  var speed: Int = 0
+  // or
+  //
+  // init() {
+  //   self.speed = 0
+  // }
+}
+
+var bike = Bike()
+print(bike.speed)
+bike.increaseSpeed(by: 20)
+print(bike.speed)
+
+// `is` keyword
+// - check whether an object conforms to a protocol or not
+
+func describe(obj: Any) {
+  if obj is Vehicle {
+    print("obj conforms to the vehicle protocol")
+  } else {
+    print("obj does not conform to the vehicle protocol")
+  }
+}
+
+describe(obj: bike)
+
+// `as?` keyword
+// - conditionally promote object to specific type
+func increaseSpeedIfVehicle(obj: Any) {
+  if var vehicle = obj as? Vehicle {
+    print(vehicle.speed)
+    vehicle.increaseSpeed(by: 20)
+    print(vehicle.speed)
+  } else {
+    print("This was not a vehicle")
+  }
+}
+
+increaseSpeedIfVehicle(obj: bike)
+// struct is value type
+print(bike.speed)
