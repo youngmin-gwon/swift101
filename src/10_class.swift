@@ -89,6 +89,20 @@ user.age = 10000
 // willSet -- newValue=10000
 // didSet -- oldValue=123
 
+// 4. type property
+// - type property does not create instance, rather store data in class or struct
+// - put `static` in front of variable or constant, or follow this syntax
+//   `class let/var property_name: type { get, set }`
+class Programmer {
+  static var loneliness = 10
+
+  class var stress: Int {
+    return 8
+  }
+}
+
+print("loneliness: \(Programmer.loneliness), stress: \(Programmer.stress)")
+
 // class can change member variable, but struct cannot without the keyword "mutating"
 //
 // value has changed even though foo is constant
