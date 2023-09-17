@@ -51,6 +51,7 @@ print(newArray)
 // ----
 // 2. Set
 // 1) declaration
+// - Set does not guarantee orders of items
 var unique = Set<String>()
 var unique2: Set<String> = []
 print(unique)
