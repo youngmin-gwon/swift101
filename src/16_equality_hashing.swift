@@ -130,3 +130,20 @@ let uniqueParts: Set<CarPart> = [
   .trunk,
 ]
 print(uniqueParts.count)  // 3
+
+enum HouseType: Hashable {
+  case bigHouse(NumberedHouse)
+  case smallHouse(NumberedHouse)
+}
+
+let bigHouse1 = HouseType.bigHouse(NumberedHouse(number: 1, numbersOfBedrooms: 1))
+let bigHouse2 = HouseType.bigHouse(NumberedHouse(number: 1, numbersOfBedrooms: 1))
+
+let smallHouse1 = HouseType.smallHouse(NumberedHouse(number: 1, numbersOfBedrooms: 1))
+
+let allHouses: Set<HouseType> = [bigHouse1, bigHouse2, smallHouse1]
+print("All house count: \(allHouses.count)")
+
+for value in allHouses {
+  print(value)
+}
